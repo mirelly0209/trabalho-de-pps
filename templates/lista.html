@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+     <style>
+         body{
+              font-family: Arial, Helvetica, sans-serif;
+              background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+          }
+         .box{
+              color: white;
+              position: Absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              background-color: rgba(0, 0, 0, 0.6);
+              padding: 15px;
+              border-radius: 15px;
+              width: 20%;
+         }
+
+    </style>
+</head>
+<body>
+ <div class="box">
+    <p>Lista dos funcionários e Sócios.</p>
+    <p>Caso queira retornar para a página inicial clique <a href="/">aqui</a> </p>
+    <br>
+    <p>Funcionários</p>
+    <ul class="list-group">
+	    {% for funcionario in funcionarios %}
+		    <li class="list-group-item">Nome: {{funcionario.nome}} <br>
+				Email: {{funcionario.email}} <br>
+				Numero: {{funcionario.numero}} <br>
+				Cidade: {{funcionario.cidade}} <br>
+			    <a href="{{funcionario.id}}/atualizar_funcionario" class="btn btn-secondary btn-xs">Editar</a>
+			    <a href="{{funcionario.id}}/remover_funcionario" class="btn btn-danger btn-xs">Excluir</a>
+		    </li>
+	    {% endfor %}
+	    </ul>
+<br><br>
+    <p>Sócios</p>
+    <ul class="list-group">
+	    {% for socio in socios %}
+		    <li class="list-group-item">Nome: {{socio.nome}} <br>
+				CPF: {{socio.cpf}} <br>
+				Nível: {{socio.nivel}} <br>
+				Email: {{socio.email}} <br>
+			    <a href="{{socio.id}}/atualizar_socio" class="btn btn-secondary btn-xs">Editar</a>
+			    <a href="{{socio.id}}/remover_socio" class="btn btn-danger btn-xs">Excluir</a>
+		    </li>
+	    {% endfor %}
+	    </ul>
+</div>
+</body>
+</html>
